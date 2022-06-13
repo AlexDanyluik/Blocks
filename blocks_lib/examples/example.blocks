@@ -1,0 +1,31 @@
+// last one
+FA LastOne {
+    := 0 1
+    + (A) {B}
+    => [
+        @A = 0 //
+        A = 1 -> B // Last alpha should be 1 in stream
+        B = 0 -> A // cannot be 0
+        @B = 1 // can take any number of 1
+    ]
+}  
+
+// ending with two ones
+FA EndWithTwoOnes {
+    := 0 1
+    + (A) B {C}
+    => [
+        @A = 0
+        A = 1 -> B
+        B = 0 -> A
+        B = 1 -> C
+        C = 0 -> A
+        @C = 1
+    ]
+}
+
+//TESTS
+> LastOne "1010101"
+> LastOne "10101010"
+> EndWithTwoOnes "101011"
+> EndWithTwoOnes "10101101"

@@ -1,0 +1,12 @@
+// last one
+FA LastOne {
+    := 0 1
+    + (A) B {C}
+    => [
+	A = 1 -> C
+	A = 0 -> B
+	@B = 0 1 
+	@C = 0 1	
+    ]
+}  
+> LastOne "100101"
